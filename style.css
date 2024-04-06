@@ -21,11 +21,40 @@
   flex-direction: column;
 }
 
+.display {
+  flex: 1;
+  background-color: rgb(200, 200, 200);
+}
+
 .buttons {
   display: flex;
   flex-wrap: wrap;
+  flex:4;
+  background-color: black;
 }
 
 .buttons > button {
-  width: 98px;
+  width: 95px;
+  margin: 2px;
+}
+
+.zero {
+  flex: 1;
+  border-radius: 50%;
+  background-color: rgb(140, 140, 140);
+}
+
+.misc {
+  border-radius: 50%;
+  background-color: rgb(170, 170, 170);
+}
+
+.operation {
+  border-radius: 50%;
+  background-color: orange;
+}
+
+.digit {
+  border-radius: 50%;
+  background-color: rgb(140, 140, 140);
 }
