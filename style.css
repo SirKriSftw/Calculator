@@ -36,6 +36,7 @@
 .buttons > button {
   width: 95px;
   margin: 2px;
+  user-select: none;
 }
 
 .zero {
