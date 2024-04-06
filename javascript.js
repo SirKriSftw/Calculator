@@ -1,3 +1,20 @@
+let displayText = "";
+
+function updateDisplay( btn )
+{
+  displayText += btn.toString();
+  const display = document.querySelector(".display");
+  const displayBox = document.querySelector(".displayBox");
+  displayBox.textContent = displayText;
+}
+
+function clearDisplay()
+{
+  displayText = "";
+  const displayBox = document.querySelector(".displayBox");
+  displayBox.textContent = displayText;
+}
+
 function operate( num1, operator, num2)
 {
   let output = "";
