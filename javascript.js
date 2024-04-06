@@ -2,7 +2,7 @@ let displayText = "";
 
 function updateDisplay( btn )
 {
-  displayText += btn.toString();
+  displayText += btn;
   const display = document.querySelector(".display");
   const displayBox = document.querySelector(".displayBox");
   displayBox.textContent = displayText;
