@@ -1,6 +1,6 @@
 function operate( num1, operator, num2)
 {
-  let output = 0;
+  let output = "";
   if(operator == "+")
   {
     output = add(num1, num2);
@@ -21,6 +21,8 @@ function operate( num1, operator, num2)
   {
     console.error("Operation doesnt exist");
   }
+
+  return output;
 }
 
 function add(num1, num2)
