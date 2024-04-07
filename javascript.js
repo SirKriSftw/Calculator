@@ -163,7 +163,32 @@ function negate()
 
 function del()
 {
+  if (currOperation.length == 1)
+  {
+    currOperation[0] = currOperation[0].slice(0, -1);
+    if(currOperation[0].toString().length == 0)
+    {
+      currOperation.pop();
+    }
+  }
+  else if (currOperation.length == 2)
+  {
+    currOperation[1] = currOperation[1].slice(0, -1);
+    if(currOperation[1].toString().length == 0)
+    {
+      currOperation.pop();
+    }
+  }
+  else
+  {
+    currOperation[2] = currOperation[2].slice(0, -1);
+    if(currOperation[2].toString().length == 0)
+    {
+      currOperation.pop();
+    }
+  }
 
+  updateDisplay("");
 }
 
 function add(num1, num2)
