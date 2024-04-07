@@ -1,6 +1,46 @@
 let displayText = "";
 let currOperation = [];
 
+document.addEventListener("keypress", (e) => {
+  console.log(e);
+  let lastChar = e.code.slice(-1);
+  if(!isNaN(lastChar))
+  {
+    updateDisplay(lastChar);
+  }
+  else if (e.code == "Slash" || e.code == "NumpadDivide")
+  {
+    updateDisplay("/");
+  }
+  else if (e.code == "KeyX" || e.code == "NumpadMultiply")
+  {
+    updateDisplay("x");
+  }
+  else if (e.code == "Minus" || e.code == "NumpadSubtract")
+  {
+    updateDisplay("-");
+  }
+  else if ((e.code == "Equal" && e.shiftKey) || e.code == "NumpadAdd")
+  {
+    updateDisplay("+");
+  }
+  else if ((e.code == "Equals" && !e.shiftKey) || e.code == "Enter" || e.code == "NumpadEnter")
+  {
+    doOperation();
+  }
+  else if (e.code == "Period" || e.code == "NumpadDecimal")
+  {
+    decimal();
+  }
+})
+
+document.addEventListener("keydown", (e) => {
+  if(e.code == "Backspace")
+  {
+    del();
+  }
+})
+
 function updateDisplay(btn)
 {
   displayText = updateOperation(btn).join(" ");
