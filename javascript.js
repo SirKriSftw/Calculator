@@ -125,7 +125,40 @@ function decimal()
 
 function negate()
 {
-
+  if(currOperation.length == 0)
+  {
+    currOperation[0] = "-";
+  }
+  else if (currOperation.length == 1)
+  {
+    if(!currOperation[0].toString().includes("-"))
+    {
+      currOperation[0] = "-" + currOperation[0];
+    }
+    else
+    {
+      currOperation[0] = currOperation[0].toString().replace("-", "");
+    }
+  }
+  else
+  {
+    if (currOperation[2] === undefined)
+    {
+        currOperation[2] = "-";
+    }
+    else
+    {
+      if(!currOperation[2].toString().includes("-"))
+      {
+        currOperation[2] = "-" + currOperation[2];
+      }
+      else
+      {
+        currOperation[2] = currOperation[2].toString().replace("-","");
+      }
+    }
+  }
+  updateDisplay("");
 }
 
 function del()
