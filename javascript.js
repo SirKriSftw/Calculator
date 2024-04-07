@@ -15,9 +15,13 @@ document.addEventListener("keypress", (e) => {
   {
     updateDisplay("x");
   }
-  else if (e.code == "Minus" || e.code == "NumpadSubtract")
+  else if ((e.code == "Minus" && !e.shiftKey) || (e.code == "NumpadSubtract" && !e.shiftKey))
   {
     updateDisplay("-");
+  }
+  else if ((e.code == "Minus" && e.shiftKey) || (e.code == "NumpadSubtract" && e.shiftKey))
+  {
+    negate();
   }
   else if ((e.code == "Equal" && e.shiftKey) || e.code == "NumpadAdd")
   {
@@ -52,9 +56,9 @@ function updateDisplay(btn)
   displayBox.textContent = displayText;
 }
 
-function updateOperation (btn)
+function updateOperation(btn)
 {
-  if(btn == "")
+  if(btn == "" && btn != 0)
   {
     return currOperation;
   }
@@ -109,11 +113,13 @@ function doOperation()
 {
     if(currOperation.length == 3)
     {
+
       currOperation[0] = operate(currOperation[0], currOperation[1], currOperation[2]);
       // Pop all but result
       currOperation.pop();
       currOperation.pop();
       updateDisplay("");
+
     }
 }
 
@@ -134,7 +140,15 @@ function operate(num1, operator, num2)
   }
   else if(operator == "/")
   {
-    output = divide(num1, num2);
+    if(num2 == 0)
+    {
+      return "No";
+    }
+
+    else
+    {
+        output = divide(num1, num2);
+    }
   }
   else
   {
