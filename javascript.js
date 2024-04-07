@@ -2,7 +2,6 @@ let displayText = "";
 let currOperation = [];
 
 document.addEventListener("keypress", (e) => {
-  console.log(e);
   let lastChar = e.code.slice(-1);
   if(!isNaN(lastChar))
   {
@@ -60,6 +59,11 @@ function updateOperation (btn)
   {
     if (currOperation.length == 1)
     {
+      currOperation[1] = btn;
+    }
+    else if (currOperation.length == 3)
+    {
+      doOperation();
       currOperation[1] = btn;
     }
   }
