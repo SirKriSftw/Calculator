@@ -103,12 +103,14 @@ function clearDisplay()
 
 function doOperation()
 {
-    currOperation[0] = operate(currOperation[0], currOperation[1], currOperation[2]);
-
-    // Pop all but result
-    currOperation.pop();
-    currOperation.pop();
-    updateDisplay("");
+    if(currOperation.length == 3)
+    {
+      currOperation[0] = operate(currOperation[0], currOperation[1], currOperation[2]);
+      // Pop all but result
+      currOperation.pop();
+      currOperation.pop();
+      updateDisplay("");
+    }
 }
 
 function operate(num1, operator, num2)
