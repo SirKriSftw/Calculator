@@ -56,12 +56,12 @@ function clearDisplay()
 function doOperation()
 {
     currOperation[0] = operate(currOperation[0], currOperation[1], currOperation[2]);
-    let temp = currOperation[0];
-    currOperation = [];
-    currOperation.push(temp);
-    displayText = currOperation;
-    console.log(currOperation);
-    console.log(displayText);
+
+    // Pop all but result
+    currOperation.pop();
+    currOperation.pop();
+    displayText = currOperation.join(" ");
+
     const displayBox = document.querySelector(".displayBox");
     displayBox.textContent = displayText;
 }
@@ -90,6 +90,49 @@ function operate(num1, operator, num2)
     console.error("Operation doesnt exist");
   }
   return output;
+}
+
+function decimal()
+{
+  if(currOperation.length == 0)
+  {
+    currOperation[0] = ".";
+  }
+  else if (currOperation.length == 1)
+  {
+    if(!currOperation[0].includes("."))
+    {
+      currOperation[0] += "."
+    }
+  }
+  else
+  {
+    if (currOperation[2] === undefined)
+    {
+        currOperation[2] = ".";
+    }
+    else
+    {
+      if(!currOperation[2].includes("."))
+      {
+        currOperation[2] += "."
+      }
+    }
+  }
+
+  displayText = currOperation.join(" ");
+  const displayBox = document.querySelector(".displayBox");
+  displayBox.textContent = displayText;
+}
+
+function negate()
+{
+
+}
+
+function del()
+{
+
 }
 
 function add(num1, num2)

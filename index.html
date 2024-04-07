@@ -14,8 +14,8 @@
       </div>
       <div class = "buttons">
           <button class = "misc" onclick = "clearDisplay()">c</button>
-          <button class = "misc">±</button>
-          <button class = "misc">del</button>
+          <button class = "misc" onclick = "negate()">±</button>
+          <button class = "misc" onclick = "del()">del</button>
           <button class = "operation" onclick = "updateDisplay('/')">÷</button>
 
           <button class = "digit" onclick = "updateDisplay(7)">7</button>
@@ -34,7 +34,7 @@
           <button class = "operation" onclick = "updateDisplay('+')">+</button>
 
           <button class = "zero" onclick = "updateDisplay(0)">0</button>
-          <button class = "digit" onclick = "updateDisplay('.')">.</button>
+          <button class = "digit" onclick = "decimal()">.</button>
           <button class = "operation" onclick = doOperation()>=</button>
       </div>
     </div>
