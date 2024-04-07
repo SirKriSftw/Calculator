@@ -11,6 +11,10 @@ function updateDisplay(btn)
 
 function updateOperation (btn)
 {
+  if(btn == "")
+  {
+    return currOperation;
+  }
   // If input is not a number, means its an operation
   if(isNaN(btn))
   {
@@ -60,10 +64,7 @@ function doOperation()
     // Pop all but result
     currOperation.pop();
     currOperation.pop();
-    displayText = currOperation.join(" ");
-
-    const displayBox = document.querySelector(".displayBox");
-    displayBox.textContent = displayText;
+    updateDisplay("");
 }
 
 function operate(num1, operator, num2)
@@ -119,10 +120,7 @@ function decimal()
       }
     }
   }
-
-  displayText = currOperation.join(" ");
-  const displayBox = document.querySelector(".displayBox");
-  displayBox.textContent = displayText;
+  updateDisplay("");
 }
 
 function negate()
