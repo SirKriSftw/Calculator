@@ -31,6 +31,10 @@ document.addEventListener("keypress", (e) => {
   {
     decimal();
   }
+  else if (e.code == "KeyC")
+  {
+    clearDisplay();
+  }
 })
 
 document.addEventListener("keydown", (e) => {
